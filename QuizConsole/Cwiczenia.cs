@@ -36,5 +36,30 @@ namespace QuizConsole
                 Console.WriteLine(element);
             }
         }
+
+        void Cwicz2()
+        {
+            var list = new List<int>() { 12, 3, 6, 7, 9, 15, 34, 56, 123, 97, 0, 2, 11 };
+
+
+            Console.WriteLine("CAŁA LISTA");
+            foreach (var item in list)
+            {
+                Console.Write($"{item}, ");
+            }
+
+            Console.WriteLine("WYBRANE");
+            Console.WriteLine();
+            var wybrane = list.Min(x => x);
+            Console.WriteLine(wybrane);
+
+            //foreach (var item in wybrane)
+            //{
+            //    Console.Write($"{item}, ");
+            //}
+
+
+            Console.ReadLine();
+        }
     }
 }

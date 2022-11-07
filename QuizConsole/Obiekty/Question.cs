@@ -6,22 +6,26 @@ using System.Threading.Tasks;
 
 namespace QuizConsole.Obiekty
 {
-    public class Pytanie
+    public class Question
     {
         public int Id { get; set; }
-        public int Kategoria { get; set; }
-        public string Tresc { get; set; }
-        public List<Odpowiedz> Odpowiedzi { get; set; }
+        public int Category { get; set; }
+        public string Content { get; set; }
+        public List<Answer> Answers { get; set; }
 
-        public int Pokaz()
+        public int Show()
         {
-            WyswietlPytanie();
+            ShowQuestion();
             var odpGracza = Console.ReadLine();
             var czyWcisnalDobryKlawisz = SprawdzCzyDobryKlawisz(odpGracza);
             while(!czyWcisnalDobryKlawisz)
             {
                 Console.Clear();
-                WyswietlPytanie();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine();
+                Console.WriteLine("Nacianąłeś nieprawidowy klawisz!!!");
+                Console.ForegroundColor = ConsoleColor.White;
+                ShowQuestion();
                 odpGracza = Console.ReadLine();
                 czyWcisnalDobryKlawisz = SprawdzCzyDobryKlawisz(odpGracza);
             }
@@ -29,14 +33,14 @@ namespace QuizConsole.Obiekty
             return int.Parse(odpGracza);
         }
 
-        private void WyswietlPytanie()
+        private void ShowQuestion()
         {
-            Console.WriteLine($"Pytanie za {Kategoria} pkt");
+            Console.WriteLine($"Pytanie za {Category} pkt");
             Console.WriteLine();
-            Console.WriteLine(Tresc);
+            Console.WriteLine(Content);
             Console.WriteLine();
-            foreach (var odp in Odpowiedzi)
-                Console.WriteLine($"{odp.Id}. {odp.Tresc}");
+            foreach (var odp in Answers)
+                Console.WriteLine($"{odp.DisplayOrder}. {odp.Content}");
 
             Console.WriteLine();
             Console.Write("Naciśnij 1, 2, 3 lub 4 => ");
@@ -59,4 +63,4 @@ namespace QuizConsole.Obiekty
 
 
 
-// 100, 200, 500, 1000, 5000
+// 100, 200, 300, 400, 500, 750, 1000

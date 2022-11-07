@@ -1,35 +1,33 @@
 ﻿using QuizConsole.Obiekty;
 
-
 // TWORZYMY OBIEKT TYPU (KLASY) GRA
-var gra = new Gra();
+var game = new Game();
+
 // WYŚWIETLAMY POWITANIE
-gra.Powitanie();
-// TWORZYMY BAZE PYTAŃ
-gra.UtworzPytania();
+game.Welcome();
+
+
 // LOSUJEMY PYTANIE
-gra.WylosujPytanie();
-// WYŚWIETLAMY PYTANIE
-var odpowiedzGracza = gra.AktualnePytanie.Pokaz();
-var czyPoprawnaOdpowiedz = gra.SprawdzCzyPoprawnaOdpowiedz(odpowiedzGracza);
+game.DrawQuestion();
 
 
-//if (odp == "1" || odp == "2" || odp == "3" || odp == "4")
-//{
-//    // prawidłowy klawisz => sprawdzamy odpowiedź
-//    Console.ForegroundColor = ConsoleColor.Green;
-//    Console.WriteLine("OK");
-//}
-//else
-//{
+// WYŚWIETLAMY PYTANIE I POBIERAMY ODP GRACZA
+var playerAnswer = game.CurrentQuestion.Show();
 
-//    // nieprawidłowy klawisz => spróbuj jeszcze raz
-//    Console.ForegroundColor = ConsoleColor.Red;
-//    Console.WriteLine("Wcisnałeś nieprawidłowy klawisz ...");
-//    Console.Write("Naciśnij 1, 2, 3 lub 4 => ");
-//    odp = Console.ReadLine();
-//}
+// SPRAWDZAMY ODPOWIEDŹ GRACZA
+var correct = game.CheckIfCorrect(playerAnswer);
+if (correct)
+{
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine("OK");
+}
+else
+{
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine("ERROR");
+}
 
+Console.ForegroundColor = ConsoleColor.White;
 
 Console.WriteLine();
 

@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace QuizConsole.Obiekty
 {
-    public class Odpowiedz
+    public class Answer
     {
         public int Id { get; set; }
-        public string Tresc { get; set; }
-        public bool CzyPrawidlowa { get; set; }
+        public string Content { get; set; }
+        public bool IsCorrect { get; set; }
+        public int DisplayOrder { get; set; }
     }
 }
