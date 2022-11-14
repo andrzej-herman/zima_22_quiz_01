@@ -12,5 +12,6 @@ namespace QuizConsole.Obiekty
         public string Content { get; set; }
         public bool IsCorrect { get; set; }
         public int DisplayOrder { get; set; }
+        public bool IsVisible { get; set; } = true;
     }
 }

@@ -39,11 +39,15 @@ namespace QuizConsole.Obiekty
             Console.WriteLine();
             Console.WriteLine(Content);
             Console.WriteLine();
-            foreach (var odp in Answers)
-                Console.WriteLine($"{odp.DisplayOrder}. {odp.Content}");
+            foreach (var answer in Answers)
+            {
+                if (answer.IsVisible)
+                    Console.WriteLine($"{answer.DisplayOrder}. {answer.Content}");
+            }
+                
 
             Console.WriteLine();
-            Console.Write("Naciśnij 1, 2, 3 lub 4 => ");
+            Console.Write("Naciśnij 1, 2, 3 lub 4, albo P wykorzystać pół na pół => ");
         }
 
         private bool SprawdzCzyDobryKlawisz(string odpowiedzGracza)

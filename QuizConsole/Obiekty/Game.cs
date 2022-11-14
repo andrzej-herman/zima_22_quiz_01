@@ -11,15 +11,17 @@ namespace QuizConsole.Obiekty
     {
         public Game()
         {
-            // USTAWIAMY POCZĄTKOWĄ KATEGORIĘ
-            CurrentCategory = 100;
-
-            
             // TWORZYMY BAZE PYTAŃ
             CreateQuestions();
 
             // TWORZYMY GENERATOR LICZB PSEUDOLOSOWYCH
             Random = new Random();
+
+            // LISTA WSZYSTKICH KATEGORII
+            Categories = Questions.Select(x => x.Category).Distinct().OrderBy(c => c).ToList();
+
+            // USTAWIAMY POCZĄTKOWĄ KATEGORIĘ
+            CurrentCategory = Categories[CategoryIndex];
         }
 
 
@@ -27,17 +29,9 @@ namespace QuizConsole.Obiekty
         public int CurrentCategory { get; set; }
         public Question CurrentQuestion { get; set; }
         public Random Random { get; set; }
+        public List<int> Categories { get; set; }
+        public int CategoryIndex { get; set; }
 
-
-        // metoda wyświetlająca planszę początkową
-        public void Welcome()
-        {
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("WITAJ W QUIZIE WIEDZY");
-            Console.WriteLine("Spróbuj odpowiedzieć na 5 pytań");
-            Console.WriteLine("POWODZENIA !!!");
-            Console.WriteLine();
-        }
 
         // metoda tworząca całą bazę pytań
         private void CreateQuestions()
@@ -74,5 +68,15 @@ namespace QuizConsole.Obiekty
             var answer = CurrentQuestion.Answers.FirstOrDefault(a => a.DisplayOrder == playerAnswer);
             return answer.IsCorrect;
         }
+
+        // metoda sprawdzająca czy to nie było ostatnie pytanie
+        public bool CheckIfLastQuestion()
+        {
+            if (CategoryIndex == 6) return true;
+            CategoryIndex++;
+            CurrentCategory = Categories[CategoryIndex];
+            return false;
+        }
+
     }
 }

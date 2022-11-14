@@ -3,31 +3,38 @@
 // TWORZYMY OBIEKT TYPU (KLASY) GRA
 var game = new Game();
 
+// TWORZYMY OBIEKT KLASY MESSAGE
+var message = new Message();
+
 // WYŚWIETLAMY POWITANIE
-game.Welcome();
+message.DisplayWelcome();
 
-
-// LOSUJEMY PYTANIE
-game.DrawQuestion();
-
-
-// WYŚWIETLAMY PYTANIE I POBIERAMY ODP GRACZA
-var playerAnswer = game.CurrentQuestion.Show();
-
-// SPRAWDZAMY ODPOWIEDŹ GRACZA
-var correct = game.CheckIfCorrect(playerAnswer);
-if (correct)
+while (true)
 {
-    Console.ForegroundColor = ConsoleColor.Green;
-    Console.WriteLine("OK");
-}
-else
-{
-    Console.ForegroundColor = ConsoleColor.Red;
-    Console.WriteLine("ERROR");
-}
+    // LOSUJEMY PYTANIE
+    game.DrawQuestion();
 
-Console.ForegroundColor = ConsoleColor.White;
 
-Console.WriteLine();
+    // WYŚWIETLAMY PYTANIE I POBIERAMY ODP GRACZA
+    var playerAnswer = game.CurrentQuestion.Show();
+
+
+    // SPRAWDZAMY ODPOWIEDŹ GRACZA
+    var correct = game.CheckIfCorrect(playerAnswer);
+    if (correct)
+    {
+        if (game.CheckIfLastQuestion())
+        {
+            message.DisplayWinGame();
+            break;
+        }
+        else
+            message.DisplayCorrectAnswer();
+    }
+    else
+    {
+        message.DisplayIncorrectAnswer();
+        break;
+    }
+}
 
