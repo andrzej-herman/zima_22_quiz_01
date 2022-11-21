@@ -22,6 +22,9 @@ namespace QuizConsole.Obiekty
 
             // USTAWIAMY POCZĄTKOWĄ KATEGORIĘ
             CurrentCategory = Categories[CategoryIndex];
+
+            // USTAWIAMY ŻE GRACZ MOŻE UŻYĆ KOŁA RATUNKOWEGO
+            CanUseWheel = true;
         }
 
 
@@ -31,6 +34,7 @@ namespace QuizConsole.Obiekty
         public Random Random { get; set; }
         public List<int> Categories { get; set; }
         public int CategoryIndex { get; set; }
+        public bool CanUseWheel { get; set; }
 
 
         // metoda tworząca całą bazę pytań
@@ -78,5 +82,14 @@ namespace QuizConsole.Obiekty
             return false;
         }
 
+
+        public void GetQuestionWithWheel()
+        {
+            var badAnswers = CurrentQuestion.Answers.Where(a => !a.IsCorrect);
+            badAnswers = badAnswers.OrderBy(a => Random.Next());
+            var toReduce = badAnswers.Take(2).ToList();
+            CurrentQuestion.Answers.Remove(toReduce[0]);
+            CurrentQuestion.Answers.Remove(toReduce[1]);
+        }
     }
 }

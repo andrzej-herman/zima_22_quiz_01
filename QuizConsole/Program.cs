@@ -1,5 +1,6 @@
 ﻿using QuizConsole.Obiekty;
 
+
 // TWORZYMY OBIEKT TYPU (KLASY) GRA
 var game = new Game();
 
@@ -16,7 +17,16 @@ while (true)
 
 
     // WYŚWIETLAMY PYTANIE I POBIERAMY ODP GRACZA
-    var playerAnswer = game.CurrentQuestion.Show();
+    var playerAnswer = game.CurrentQuestion.Show(game.CanUseWheel);
+
+    // WYBÓR KOŁA PÓŁ NA PÓŁ
+    if (playerAnswer == 5)
+    {
+        game.CanUseWheel = false;
+        game.GetQuestionWithWheel();
+        Console.Clear();
+        playerAnswer = game.CurrentQuestion.Show(game.CanUseWheel);
+    }
 
 
     // SPRAWDZAMY ODPOWIEDŹ GRACZA
