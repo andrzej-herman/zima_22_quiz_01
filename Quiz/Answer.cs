@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuizConsole.Obiekty
+namespace Quiz
 {
     public class Answer
     {

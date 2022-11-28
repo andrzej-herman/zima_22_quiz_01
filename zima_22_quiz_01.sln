@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizConsole", "QuizConsole\QuizConsole.csproj", "{CDC2953E-01DE-41C9-820F-4F82FD223919}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuizConsole", "QuizConsole\QuizConsole.csproj", "{CDC2953E-01DE-41C9-820F-4F82FD223919}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quiz", "Quiz\Quiz.csproj", "{777F4D76-6A55-44CA-90AD-905D3EAE6A81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizDesktop", "QuizDesktop\QuizDesktop.csproj", "{11150BF4-000E-4E06-80B8-08DB7F0DF592}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{CDC2953E-01DE-41C9-820F-4F82FD223919}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDC2953E-01DE-41C9-820F-4F82FD223919}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDC2953E-01DE-41C9-820F-4F82FD223919}.Release|Any CPU.Build.0 = Release|Any CPU
+		{777F4D76-6A55-44CA-90AD-905D3EAE6A81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{777F4D76-6A55-44CA-90AD-905D3EAE6A81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{777F4D76-6A55-44CA-90AD-905D3EAE6A81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{777F4D76-6A55-44CA-90AD-905D3EAE6A81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11150BF4-000E-4E06-80B8-08DB7F0DF592}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11150BF4-000E-4E06-80B8-08DB7F0DF592}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11150BF4-000E-4E06-80B8-08DB7F0DF592}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11150BF4-000E-4E06-80B8-08DB7F0DF592}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

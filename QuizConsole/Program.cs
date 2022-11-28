@@ -1,4 +1,5 @@
-﻿using QuizConsole.Obiekty;
+﻿using Quiz;
+using QuizConsole;
 
 
 // TWORZYMY OBIEKT TYPU (KLASY) GRA

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuizConsole.Obiekty
+namespace Quiz
 {
     public class Question
     {
@@ -18,7 +18,7 @@ namespace QuizConsole.Obiekty
             ShowQuestion(canUseWheel);
             var odpGracza = Console.ReadLine();
             var czyWcisnalDobryKlawisz = SprawdzCzyDobryKlawisz(odpGracza, canUseWheel);
-            while(!czyWcisnalDobryKlawisz)
+            while (!czyWcisnalDobryKlawisz)
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -47,10 +47,10 @@ namespace QuizConsole.Obiekty
                 if (answer.IsVisible)
                     Console.WriteLine($"{answer.DisplayOrder}. {answer.Content}");
             }
-                
+
 
             Console.WriteLine();
-            var message = canUseWheel 
+            var message = canUseWheel
                 ? "Naciśnij 1, 2, 3 lub 4, albo P wykorzystać pół na pół => "
                 : "Naciśnij 1, 2, 3 lub 4 => ";
 
@@ -74,11 +74,5 @@ namespace QuizConsole.Obiekty
 
             return false;
         }
-
     }
 }
-
-
-
-
-// 100, 200, 300, 400, 500, 750, 1000

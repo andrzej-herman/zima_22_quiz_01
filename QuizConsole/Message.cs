@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuizConsole.Obiekty
+namespace QuizConsole
 {
     public class Message
     {
@@ -43,7 +43,7 @@ namespace QuizConsole.Obiekty
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine();
             Console.WriteLine("Naciśnij ENTER aby zobaczyć następne pytanie ...");
-            Console.ForegroundColor = ConsoleColor.White;     
+            Console.ForegroundColor = ConsoleColor.White;
             Console.ReadLine();
             Console.Clear();
         }
